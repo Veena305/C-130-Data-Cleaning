@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = pd.read_csv("dwarf.csv")
+df.head()
+df = df[df['Radius'].notna()]
+df = df[df['Mass'].notna()]
+
+#print(df)
+
+df = df.dropna()
+df["Radius"] = (1027 * df["Radius"])  # /100000
+df["Mass"] = (95 * df["Mass"])      # /100000
+df.dtypes
+
+print(df)
